@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subcribe</title>
+    <style>
+        .heading{
+            font-weight: 800;
+            
+        }
+        .btn{
+            background-color: black;
+            color: white;
+            height: 2.1rem;
+            border: 0;
+            border-radius: 16px;
+            width: 6rem;
+            font-weight: bold;
+            cursor:pointer;
+        }
+        .is-subscribed{
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <p class="heading">Youtube Subscribe Button</p>
+
+    <button class="btn" onclick="
+     subscribe();
+
+    ">Subscribe</button>
+
+    <script>
+        // algo ->
+        // when we click the button,
+        // 1. if the text is "subscribe" => "subscribed"
+        // 2.otherwise, change it back =>"subscribe"
+        function subscribe(){
+             const buttonElement = document.querySelector('.btn');
+            if(buttonElement.innerText === 'Subscribe'){
+                buttonElement.innerText = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
+            }else{
+                buttonElement.innerText = 'Subcribe';
+                buttonElement.classList.remove('is-subscribed');
+            }
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Quantity</title>
+</head>
+
+<body>
+    <h2>Cart Quantity</h2>
+
+    <button class="btn1" onclick="
+        console.log(`cartQuantity : ${cartQuantity}`);
+    
+    ">Show Quantity</button>
+    <button class="btn2" onclick="
+        updateCartQuantity(+1);
+
+     ">Add to cart</button>
+    <button class="btn3" onclick="
+        updateCartQuantity(+2);
+    
+    ">+2</button>
+
+    <button class="btn4" onclick="
+    updateCartQuantity(+3);
+    ">+3</button>
+
+    <button onclick="
+if(cartQuantity<=10){
+        console.log('not enough items');
+    
+
+     }
+     else if(cartQuantity ===1 ){
+            console.log('press reset')
+         }
+     
+     
+     else { 
+      updateCartQuantity(-2);
+     }
+
+">-2</button>
+    <button onclick="
+if(cartQuantity<=0){
+        console.log('not enough items');
+     }
+     else if(cartQuantity ===1 ){
+            console.log('press reset')
+         }
+         else if(cartQuantity ===2 ){
+            console.log('press reset')
+         }
+     
+     else { 
+        updateCartQuantity(-3);
+     }
+
+">-3</button>
+
+
+
+    <button onclick="
+ updateCartQuantity(-1);
+
+
+">Remove from cart</button>
+
+    <button class="btn5" onclick="
+        cartQuantity=0;
+        console.log('cart was reset')
+        console.log(`cartQuantity : ${cartQuantity}`)
+    
+    ">Reset Cart</button>
+    <p class="js-para"></p>
+    <script>
+        // const x = document.querySelector('.js-para');
+
+        let cartQuantity = 0;
+
+        display();
+
+        function updateCartQuantity(change){
+            if(cartQuantity + change > 10){
+                alert('The cart is full');
+                return;
+            }else if(cartQuantity + change < 0){
+                alert('Not enough items in the cart ');
+                return;
+            }
+             
+
+            cartQuantity += change;
+            display();
+            // console.log(`cart quantity : ${cartQuantity}`);
+            
+            }
+            function display(){
+                document.querySelector('.js-para').innerHTML = `Cart quantity : ${cartQuantity}`;
+            }
+        
+
+
+    </script>
+
+</body>
+
+</html>

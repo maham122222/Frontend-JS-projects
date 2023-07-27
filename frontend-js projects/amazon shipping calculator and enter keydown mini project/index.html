@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Shipping Cclculator</title>
+    <style>
+        .js-input{
+            height: 2.5rem;
+            width: 12rem;
+        }
+        .calculate{
+            background-color: rgb(23, 201, 23);
+            border: 1px solid black;
+            height: 2.7rem;
+            width: 6rem;
+            color: white;
+            
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 =+ $10 shipping</p>
+    <p>Orders over $40 = FREE shipping</p>
+
+    <input type="number" placeholder="Cost of order" class="js-input" onkeydown=" 
+        //event-> every event listener gets an event obj
+        //key->what key we clicked
+       handleKey(event);
+    ">
+
+    <button class="calculate" onclick=" CalculateTotal();
+
+    //clicks,keydown ->events
+    //onclick,onkeydown ->event listeners    
+    
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+    <p class="error"></p>
+
+    <script>
+        //algo
+        //when we click the button
+        //get the text in the text box
+        //if amount <$40 , add $10
+        //display total on the page
+        //if amount >$40 , free shipping
+
+        //when we press enter key
+        //we will do same as calculate button
+
+        function handleKey(event){
+            //event.key;
+        if(event.key === 'Enter'){
+            CalculateTotal();
+        }
+    
+
+        }
+
+        function CalculateTotal(){
+         const inputElement =  document.querySelector('.js-input');
+         let cost = Number(inputElement.value)*100;
+         if(cost <0){
+            const errorMsg = document.querySelector('.error')
+            errorMsg.innerHTML = 'Error: cost cannot be less than $0';
+            return;
+         }
+         if(cost < 4000){
+            cost+=1000;
+         }
+         document.querySelector('.js-total-cost').innerHTML=`$${cost/100}`;
+         
+
+        }
+
+
+        
+
+
+    </script>
+    
+</body>
+</html>

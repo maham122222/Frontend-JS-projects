@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 buttons</title>
+    <style>
+        .btn{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin: 10px;
+        }
+        .is-toggled{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="gaming btn" onclick="
+    let button1 = document.querySelector('.gaming');
+    if(!button1.classList.contains('is-toggled')){
+        previousButton();
+        button1.classList.add('is-toggled');
+
+    }else{
+        button1.classList.remove('is-toggled');
+    }
+        
+        
+        ">gaming</button>
+    <button class="music btn" onclick="
+    const button2 = document.querySelector('.music');
+    if(!button2.classList.contains('is-toggled')){
+        previousButton();
+        button2.classList.add('is-toggled');
+
+    }else{
+        button2.classList.remove('is-toggled');
+    }
+    
+    
+    ">music</button>
+    <button class="tech btn" onclick="
+     const button3 = document.querySelector('.tech');
+      if (!button3.classList.contains('is-toggled')) {
+        previousButton();
+        button3.classList.add('is-toggled');
+      } else {
+        button3.classList.remove('is-toggled');
+      }
+    ">tech</button>
+
+    <script >
+        function previousButton(){
+    const previousButtonTurnOff = document.querySelector('.is-toggled');
+    if(previousButtonTurnOff){
+        previousButtonTurnOff.classList.remove('is-toggled');
+    }
+    
+}
+
+// function turnOffPreviousButton() {
+//   const previousButton = document.querySelector('.is-toggled');
+//   if (previousButton) {
+//     previousButton.classList.remove('is-toggled');
+//   }
+// }
+    </script>
+    
+</body>
+</html>
